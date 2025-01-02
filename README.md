@@ -8,7 +8,7 @@ Language: Python v3.12.5
 
 Framework: Django v5.1.4
 
-Database: Postgres
+Database: Postgres v17.2
 
 ## Getting Started
 
