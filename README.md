@@ -12,4 +12,15 @@ Database: Postgres v17.2
 
 ## Getting Started
 
-1. Install packages `pip install -r requirements.txt`
+Create virtual environment `python -m venv .venv`
+
+Install python packages `pip install -r requirements.txt`
+
+Database setup:
+
+- [Install Postgres](https://www.postgresql.org/download/)
+- Create database with name `myresumebuilder` ([Postgres Documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html))
+- Setup Postgres connection ([Django Documentation](https://docs.djangoproject.com/en/5.1/ref/databases/#postgresql-notes)):
+  - [The Password File - Postgres Documentation](https://www.postgresql.org/docs/current/libpq-pgpass.html)
+  - [The Connection Service File - Postgres Documentation](https://www.postgresql.org/docs/current/libpq-pgservice.html)
+
