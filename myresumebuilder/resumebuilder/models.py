@@ -5,11 +5,18 @@ class CountryCode(models.Model):
     code = models.CharField(max_length=5)
     country = models.CharField(max_length=50)
 
+    # Reference: https://stackoverflow.com/questions/43865989/unresolved-attribute-reference-objects-for-class-in-pycharm
+    objects = models.Manager()
+
     def __str__(self):
         return f"{self.country} {self.code}"
 
 # Create your models here.
 class Resume(models.Model):
+
+    # Reference: https://stackoverflow.com/questions/43865989/unresolved-attribute-reference-objects-for-class-in-pycharm
+    objects = models.Manager()
+
     # Required
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)

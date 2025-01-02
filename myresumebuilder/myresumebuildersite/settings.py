@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,10 +78,16 @@ WSGI_APPLICATION = 'myresumebuildersite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            "service": "my_service",
-            "passfile": ".my_pgpass",
-        },
+        "HOST": os.environ["DB_HOST"], # it is either "localhost" if running locally or the name of the service you created to expose the database for connection in a container environment
+        "PORT": 5432,
+        "NAME": os.environ["POSTGRES_DB"],
+        "USER": os.environ["POSTGRES_USER"],
+        "PASSWORD": os.environ["POSTGRES_PASSWORD"],
+        # Since using a service name for testing purpose is not supported. The options for service and passfile is commented out
+        # 'OPTIONS': {
+        #     "service": "my_service",
+        #     "passfile": ".my_pgpass",
+        # },
     }
 }
 
