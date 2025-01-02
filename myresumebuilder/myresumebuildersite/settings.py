@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'myresumebuildersite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        "HOST": "db",
+        "HOST": os.environ["DB_HOST"], # it is either "localhost" if running locally or the name of the service you created to expose the database for connection in a container environment
         "PORT": 5432,
         "NAME": os.environ["POSTGRES_DB"],
         "USER": os.environ["POSTGRES_USER"],
