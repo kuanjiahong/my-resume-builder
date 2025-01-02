@@ -1,5 +1,13 @@
 from django.db import models
 
+
+class CountryCode(models.Model):
+    code = models.CharField(max_length=5)
+    country = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.country} {self.code}"
+
 # Create your models here.
 class Resume(models.Model):
     # Required
