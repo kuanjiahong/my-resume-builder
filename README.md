@@ -24,3 +24,6 @@ Database setup:
   - [The Password File - Postgres Documentation](https://www.postgresql.org/docs/current/libpq-pgpass.html)
   - [The Connection Service File - Postgres Documentation](https://www.postgresql.org/docs/current/libpq-pgservice.html)
 
+Run server:
+- `cd myresumebuilder`
+- `python manage.py runserver`
