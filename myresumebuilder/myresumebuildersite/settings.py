@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'myresumebuildersite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        "HOST": "localhost",
+        "HOST": "db",
         "PORT": 5432,
-        "NAME": "myresumebuilder",
-        "USER": "postgres",
+        "NAME": os.environ["POSTGRES_DB"],
+        "USER": os.environ["POSTGRES_USER"],
         "PASSWORD": os.environ["POSTGRES_PASSWORD"],
         # Since using a service name for testing purpose is not supported. The options for service and passfile is commented out
         # 'OPTIONS': {
