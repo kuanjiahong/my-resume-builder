@@ -25,5 +25,9 @@ Database setup:
   - [The Connection Service File - Postgres Documentation](https://www.postgresql.org/docs/current/libpq-pgservice.html)
 
 Run server:
-- `cd myresumebuilder`
-- `python manage.py runserver`
+
+```bash
+cd myresumebuilder
+python manage.py migrate
+python manage.py runserver
+```
