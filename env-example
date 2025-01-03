@@ -1,3 +1,5 @@
+
+# Database
 DB_HOST= # it is either "localhost" if running locally or the name of the service you created to expose the database for connection in a container environment
 POSTGRES_DB=
 POSTGRES_USER=
