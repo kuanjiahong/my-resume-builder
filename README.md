@@ -24,18 +24,21 @@ Database setup:
   - [The Password File - Postgres Documentation](https://www.postgresql.org/docs/current/libpq-pgpass.html)
   - [The Connection Service File - Postgres Documentation](https://www.postgresql.org/docs/current/libpq-pgservice.html)
 
-Create a `.env` file and populate the environment variables as shown in `env-example`.
 
-Run server locally:
+### Run server locally:
 
-Before running the server locally, set the environment variables in `env-example` in the terminal.
+First, set the environment variables
 
-Windows: 
-- [about Environment Variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.4)
-- [Stack Overflow - Setting Windows PowerShell environment variables](https://stackoverflow.com/questions/714877/setting-windows-powershell-environment-variables)
+Windows:
 
-Linux/macOs:
-- [freecodecamp - How to Set an Environment Variable in Linux](https://www.freecodecamp.org/news/how-to-set-an-environment-variable-in-linux/)
+```powershell
+.\ps-set-env-dev.ps1
+```
+
+Linux / macOs:
+```shell
+./unix-set-env-dev.sh
+```
 
 
 ```bash
@@ -44,12 +47,42 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Run container:
+### Run container:
 
 First, [install Docker](https://www.docker.com/)
 
-Second, make sure you have a `.env` file in the root of the project
+Second, create a `.env` file and populate the environment variables as shown in `env-example.txt`.
 
 ```shell
 docker compose up
+```
+
+## Deployment
+
+Reference: https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+
+Run manage.py check --deploy
+```shell
+python manage.py check --deploy
+```
+
+Generate `SECRET_KEY`
+```shell
+python -c "import secrets; print(secrets.token_urlsafe(60))"
+```
+Reference: 
+- https://stackoverflow.com/questions/34897740/what-is-the-simplest-and-safest-method-to-generate-an-api-key-and-secret-in-pyth
+- https://docs.python.org/3/library/secrets.html
+
+Environment-specific settings:
+
+```python
+DEBUG="False"
+SESSION_COOKIE_SECURE="True"
+CSRF_COOKIE_SECURE="True"
+ALLOWED_HOSTS="your-domain.com, another-domain-if-any.com"
+SECURE_SSL_REDIRECT="True"
+SECURE_HSTS_SECONDS="31536000" # one year - but can first start with a small value for testing e.g. 3600 (one hour)
+SECURE_HSTS_INCLUDE_SUBDOMAINS="True"
+SECURE_HSTS_PRELOAD="True"
 ```

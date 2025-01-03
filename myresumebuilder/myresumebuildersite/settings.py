@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!*+*8_opgt_d37qm7mpg_#s+!2ghr^u2g!9qvq3*1yf$e%7%8d'
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ["DEBUG"] == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
 
 # Application definition
@@ -50,6 +50,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+SESSION_COOKIE_SECURE = os.environ["SESSION_COOKIE_SECURE"] == "True"
+CSRF_COOKIE_SECURE = os.environ["CSRF_COOKIE_SECURE"] == "True"
+SECURE_SSL_REDIRECT = os.environ["SECURE_SSL_REDIRECT"] == "True"
+SECURE_HSTS_SECONDS = os.environ["SECURE_HSTS_SECONDS"]
+SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ["SECURE_HSTS_INCLUDE_SUBDOMAINS"] == "True"
+SECURE_HSTS_PRELOAD = os.environ["SECURE_HSTS_PRELOAD"] == "True"
 
 ROOT_URLCONF = 'myresumebuildersite.urls'
 
