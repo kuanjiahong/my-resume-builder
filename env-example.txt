@@ -1,0 +1,15 @@
+DEBUG=True # True if development else False
+SECRET_KEY=
+SESSION_COOKIE_SECURE=False
+CSRF_COOKIE_SECURE=False
+ALLOWED_HOSTS="127.0.0.1, localhost"
+SECURE_SSL_REDIRECT=False
+SECURE_HSTS_SECONDS=0
+SECURE_HSTS_INCLUDE_SUBDOMAINS=False
+SECURE_HSTS_PRELOAD=False
+
+# Database
+DB_HOST= # it is either "localhost" if running locally or the name of the service you created to expose the database for connection in a container environment
+POSTGRES_DB=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
