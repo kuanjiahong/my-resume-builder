@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from resumebuilder import views
 
 urlpatterns = [
+    path("", views.landing_page, name="landing_page"),
     path("resumebuilder/", include("resumebuilder.urls")),
     path('admin/', admin.site.urls),
 ]
