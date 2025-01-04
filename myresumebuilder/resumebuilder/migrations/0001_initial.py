@@ -8,37 +8,58 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='CountryCode',
+            name="CountryCode",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(max_length=5)),
-                ('country', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("code", models.CharField(max_length=5)),
+                ("country", models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='Resume',
+            name="Resume",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=50)),
-                ('last_name', models.CharField(max_length=50)),
-                ('email', models.EmailField(max_length=254)),
-                ('education', models.TextField()),
-                ('work_experience', models.TextField()),
-                ('phone_number', models.CharField(max_length=15)),
-                ('summary', models.TextField(blank=True, null=True)),
-                ('skills', models.TextField(blank=True, null=True)),
-                ('certifications', models.TextField(blank=True, null=True)),
-                ('projects', models.TextField(blank=True, null=True)),
-                ('languages', models.TextField(blank=True, null=True)),
-                ('hobbies', models.TextField(blank=True, null=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('country_code', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='resumebuilder.countrycode')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=50)),
+                ("last_name", models.CharField(max_length=50)),
+                ("email", models.EmailField(max_length=254)),
+                ("education", models.TextField()),
+                ("work_experience", models.TextField()),
+                ("phone_number", models.CharField(max_length=15)),
+                ("summary", models.TextField(blank=True, null=True)),
+                ("skills", models.TextField(blank=True, null=True)),
+                ("certifications", models.TextField(blank=True, null=True)),
+                ("projects", models.TextField(blank=True, null=True)),
+                ("languages", models.TextField(blank=True, null=True)),
+                ("hobbies", models.TextField(blank=True, null=True)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "country_code",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="resumebuilder.countrycode",
+                    ),
+                ),
             ],
         ),
     ]

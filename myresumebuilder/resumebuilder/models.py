@@ -11,6 +11,7 @@ class CountryCode(models.Model):
     def __str__(self):
         return f"{self.country} {self.code}"
 
+
 # Create your models here.
 class Resume(models.Model):
 
@@ -38,5 +39,3 @@ class Resume(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}'s Resume"
-
-

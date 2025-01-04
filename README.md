@@ -70,7 +70,7 @@ Generate `SECRET_KEY`
 ```shell
 python -c "import secrets; print(secrets.token_urlsafe(60))"
 ```
-Reference: 
+Reference:
 - https://stackoverflow.com/questions/34897740/what-is-the-simplest-and-safest-method-to-generate-an-api-key-and-secret-in-pyth
 - https://docs.python.org/3/library/secrets.html
 
