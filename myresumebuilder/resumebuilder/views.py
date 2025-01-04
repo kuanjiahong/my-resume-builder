@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+def landing_page(request):
+    return render(request, "resumebuilder/landing_page.html")
 
 def index(request):
     return HttpResponse("Hello, world. You're at the resume builder index.")

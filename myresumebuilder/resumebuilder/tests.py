@@ -41,3 +41,21 @@ class ViewsTestCase(TestCase):
         response = self.client.get(reverse("index"))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.content, b"Hello, world. You're at the resume builder index.")
+
+class LandingPageViewTest(TestCase):
+    def test_landing_page_status_code(self):
+        """Test if the landing page returns a 200 status code."""
+        response = self.client.get(reverse('landing_page'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_landing_page_template(self):
+        """Test if the correct template is used for the landing page."""
+        response = self.client.get(reverse('landing_page'))
+        self.assertTemplateUsed(response, 'resumebuilder/landing_page.html')
+
+    def test_landing_page_content(self):
+        """Test if the landing page contains specific content."""
+        response = self.client.get(reverse('landing_page'))
+        self.assertContains(response, 'Welcome to My Resume Builder')
+        self.assertContains(response, 'Start building your resume now!')
+        self.assertContains(response, 'Go to Resume Builder')
